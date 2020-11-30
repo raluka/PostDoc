@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <% flash.keys.each do |key| %>
+      <div class="alert #{key}"><%= flash[key] %></div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

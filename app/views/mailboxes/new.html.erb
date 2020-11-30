@@ -1,0 +1,18 @@
+<h1>New Mailbox</h1>
+
+<%= form_for(@mailbox) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <br>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :sendgrid_api_token %>
+    <br>
+    <%= f.text_field :sendgrid_api_token %>
+  </div>
+  <div>
+    <br>
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<p>
+  <%= link_to 'Back to overview', mailboxes_path %>
+</p>
+
+<h1>
+  Mailbox <%= @mailbox.name %>
+</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td><%= @mailbox.name %></td>
+    </tr>
+    <tr>
+      <td>Mock Token</td>
+      <td><%= @mailbox.sendgrid_mock_api_token %></td>
+    </tr>
+    <tr>
+      <td>Sendgrid Token</td>
+      <td><%= Array.new(10, '*').join('') %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_mailbox_path(@mailbox) %>
+<%= link_to 'Destroy', mailbox_path(@mailbox), method: :delete, 'data-confirm': 'Are you sure you want to delete this mailbox?' %>

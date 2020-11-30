@@ -1,0 +1,10 @@
+
+<h1>Mailboxes</h1>
+
+<%= link_to 'New Mailbox',  new_mailbox_path %>
+<% @mailboxes.each do |mailbox| %>
+  <div>
+    <h2><%= mailbox.name %></h2>
+    <p><%= link_to 'Open', mailbox_path(mailbox) %></p>
+  </div>
+<% end %>
