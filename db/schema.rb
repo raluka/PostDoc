@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_11_30_185142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "mailboxes", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "sendgrid_mock_api_token", null: false
+    t.string "sendgrid_api_token", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sendgrid_mock_api_token"], name: "index_mailboxes_on_sendgrid_mock_api_token", unique: true
+  end
 
 end
