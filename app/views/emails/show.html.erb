@@ -1,0 +1,49 @@
+<table class="table">
+  <tr>
+    <td>From</td>
+    <td><%= @email.from %></td>
+  </tr>
+  <tr>
+    <td>To</td>
+    <td><%= @email.to %></td>
+  </tr>
+  <tr>
+    <td>Subject</td>
+    <td><%= @email.subject %></td>
+  </tr>
+  <tr>
+    <td>Template</td>
+    <td><%= link_to @email.template_name, @email.link_to_template, target: '_blank' %></td>
+  </tr>
+  <tr>
+    <td>Received</td>
+    <td><%= l(@email.created_at, format: :long) %></td>
+  </tr>
+</table>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#preview" role="tab" aria-controls="home" aria-selected="true">Preview</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#template-info" role="tab" aria-controls="profile" aria-selected="false">Template Information</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane show active" id="preview" role="tabpanel" aria-labelledby="home-tab">
+    <iframe width="100%" style="height: 80vh" src="<%= preview_email_path(@email) %>" frameborder="0"></iframe>
+  </div>
+  <div class="tab-pane" id="template-info" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="row mt-2">
+      <div class="col-md-6">
+        <h2>Request Details</h2>
+        <pre style="font-size: 0.8rem"><code><%= JSON.pretty_generate(@email.email_payload) %></code></pre>
+      </div>
+      <div class="col-md-6">
+        <h2>Template Details</h2>
+        <pre style="font-size: 0.8rem"><code><%= JSON.pretty_generate(@email.template_payload) %></code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+

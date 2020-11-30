@@ -1,0 +1,21 @@
+<table class="table table-sm">
+  <thead>
+    <th>Subject</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Created at</th>
+    <th></th>
+  </thead>
+
+  <tbody>
+    <% @emails.each do |email| %>
+      <tr>
+        <td><%= email.subject %></td>
+        <td><%= email.from %></td>
+        <td><%= email.to %></td>
+        <td><%= l(email.created_at, format: :short) %></td>
+        <td><%= link_to('Show', email_path(email)) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

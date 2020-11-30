@@ -1,12 +1,17 @@
 <p>
-  <%= link_to 'Back to overview', mailboxes_path %>
+  <%= link_to 'Back to mailboxes', mailboxes_path %>
 </p>
 
 <h1>
   Mailbox <%= @mailbox.name %>
 </h1>
 
-<table>
+<p class="text-right">
+  <%= link_to 'Edit', edit_mailbox_path(@mailbox), class: 'btn btn-primary' %>
+  <%= link_to 'Destroy', mailbox_path(@mailbox), class: 'btn btn-danger', method: :delete, 'data-confirm': 'Are you sure you want to delete this mailbox?' %>
+</p>
+
+<table class="table">
   <tbody>
     <tr>
       <td>Name</td>
@@ -23,5 +28,10 @@
   </tbody>
 </table>
 
-<%= link_to 'Edit', edit_mailbox_path(@mailbox) %>
-<%= link_to 'Destroy', mailbox_path(@mailbox), method: :delete, 'data-confirm': 'Are you sure you want to delete this mailbox?' %>
+<div class="card">
+  <div class="card-body">
+    <h2>Emails</h2>
+    <hr>
+    <%= render(partial: 'emails/table') %>
+  </div>
+</div>

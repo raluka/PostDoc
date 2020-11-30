@@ -1,10 +1,14 @@
 
 <h1>Mailboxes</h1>
 
-<%= link_to 'New Mailbox',  new_mailbox_path %>
+<p class="text-right">
+  <%= link_to 'New Mailbox',  new_mailbox_path, class: 'btn btn-primary' %>
+</p>
 <% @mailboxes.each do |mailbox| %>
-  <div>
-    <h2><%= mailbox.name %></h2>
-    <p><%= link_to 'Open', mailbox_path(mailbox) %></p>
+  <div class="card mb-2">
+    <div class="card-body">
+      <p class="h4"><%= mailbox.name %></p>
+      <p><%= link_to 'Open', mailbox_path(mailbox) %></p>
+    </div>
   </div>
 <% end %>

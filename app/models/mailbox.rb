@@ -1,10 +1,13 @@
 class Mailbox < ApplicationRecord
+  has_many :emails, dependent: :destroy
+
   validates :name, presence: true
 
   validates :sendgrid_mock_api_token, presence: true
   validates :sendgrid_mock_api_token, uniqueness: true
 
   validates :sendgrid_api_token, presence: true
+
 
   before_validation :generate_sendgrid_mock_api_token
 

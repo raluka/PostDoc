@@ -6,6 +6,7 @@ class MailboxesController < ApplicationController
   end
 
   def show
+    @emails = @mailbox.emails
   end
 
   def new
